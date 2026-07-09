@@ -1,7 +1,5 @@
 # 小錘啟動器
 
-[English README](README.md) / [簡體中文](README.zh-Hans.md)
-
 ## 這是什麼
 
 小錘啟動器是一個由 INI 配置驅動的 Windows 原生單文件啟動器。
