@@ -36,7 +36,7 @@ jobs:
           New-Item -ItemType Directory -Force -Path $dist | Out-Null
 
           Copy-Item -LiteralPath 'native/publish/XHLauncher.exe' -Destination (Join-Path $dist 'XHLauncher.exe') -Force
-          Copy-Item -LiteralPath 'native/publish/XHLauncher.ini' -Destination (Join-Path $dist 'XHLauncher.ini') -Force
+          Copy-Item -LiteralPath 'DEFAULT_TEMPLATE.txt' -Destination (Join-Path $dist 'XHLauncher.ini') -Force
           Copy-Item -LiteralPath 'LICENSE' -Destination (Join-Path $dist 'LICENSE') -Force
 
           $zip = Join-Path $distRoot "XHLauncher-$version-windows-x86.zip"
