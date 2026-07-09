@@ -1,7 +1,5 @@
 # 小锤启动器
 
-[English README](README.md) / [繁體中文](README.zh-Hant.md)
-
 ## 这是什么
 
 小锤启动器是一个由 INI 配置驱动的 Windows 原生单文件启动器。
