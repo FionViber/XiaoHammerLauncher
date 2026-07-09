@@ -2,6 +2,10 @@
 
 [简体中文](README.zh-Hans.md) / [繁體中文](README.zh-Hant.md)
 
+## What Is It
+
+Xiao Hammer Launcher is a native single-file Windows launcher driven by an INI file.
+
 ## What It Does
 
 Put the EXE beside an INI file with the same base name. The INI decides what the launcher does.
@@ -42,6 +46,8 @@ The default target is x86 so the same EXE can run on both 32-bit and 64-bit Wind
 5. Run the EXE again.
 
 If the EXE is renamed, the INI name follows it. For example, `Tools.exe` reads `Tools.ini`.
+
+See the full default template: [DEFAULT_TEMPLATE.md](DEFAULT_TEMPLATE.md). A plain text copy is also available as [DEFAULT_TEMPLATE.txt](DEFAULT_TEMPLATE.txt).
 
 ## Modes
 
