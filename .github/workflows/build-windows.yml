@@ -45,11 +45,9 @@ jobs:
           Copy-Item -LiteralPath 'native/publish/README.md' -Destination (Join-Path $dist 'README.md') -Force
           Copy-Item -LiteralPath 'native/publish/README.zh-Hans.md' -Destination (Join-Path $dist 'README.zh-Hans.md') -Force
           Copy-Item -LiteralPath 'native/publish/README.zh-Hant.md' -Destination (Join-Path $dist 'README.zh-Hant.md') -Force
-          Copy-Item -LiteralPath 'native/publish/DEFAULT_TEMPLATE.md' -Destination (Join-Path $dist 'DEFAULT_TEMPLATE.md') -Force
+          Copy-Item -LiteralPath 'LICENSE' -Destination (Join-Path $dist 'LICENSE') -Force
           Copy-Item -LiteralPath 'native/publish/DEFAULT_TEMPLATE.txt' -Destination (Join-Path $dist 'DEFAULT_TEMPLATE.txt') -Force
-          Copy-Item -LiteralPath 'native/publish/DEFAULT_TEMPLATE.zh-Hans.md' -Destination (Join-Path $dist 'DEFAULT_TEMPLATE.zh-Hans.md') -Force
           Copy-Item -LiteralPath 'native/publish/DEFAULT_TEMPLATE.zh-Hans.txt' -Destination (Join-Path $dist 'DEFAULT_TEMPLATE.zh-Hans.txt') -Force
-          Copy-Item -LiteralPath 'native/publish/DEFAULT_TEMPLATE.zh-Hant.md' -Destination (Join-Path $dist 'DEFAULT_TEMPLATE.zh-Hant.md') -Force
           Copy-Item -LiteralPath 'native/publish/DEFAULT_TEMPLATE.zh-Hant.txt' -Destination (Join-Path $dist 'DEFAULT_TEMPLATE.zh-Hant.txt') -Force
           Copy-Item -LiteralPath 'native/src/XHLauncher.cpp' -Destination (Join-Path $dist 'XHLauncher.cpp') -Force
           Copy-Item -LiteralPath 'native/publish/XHLauncher.exe' -Destination (Join-Path $dist 'XHLauncher.exe') -Force
