@@ -1,0 +1,1139 @@
+﻿##預設配置模板
+##如果同名 INI 不存在，程序會釋放這份模板。
+##預設 Mode=0 打開編輯模式。編輯模式會按當前語言顯示內置說明。
+##預設模板使用 UTF-8 with BOM。程序支持 UTF-8 無 BOM、UTF-8 with BOM 和 UTF-16 LE with BOM。
+##主 INI 不支持 ANSI、GBK 或其他本地代碼頁。
+##注釋行以 # 或 ; 開頭。沒有等號的行會被忽略。未知區域和未知配置項會被忽略。
+##等號右側的內容會按原樣保留。開頭和結尾的空格也屬於配置值。控制字段會忽略兩側空格。
+##Mode 只能填寫 0、1、2。Enable、Run、Show、UseRelativePath、AddReg、RegImported 等數字開關只能填寫 0 或 1。
+##如果配置無法修復，請先備份它，再刪除它。程序下次運行會釋放預設配置。
+##相對路徑字段只替換當前模式變量。絕對路徑字段、啟動參數和自定義工作目錄也支持 Windows 環境變量和 %XHLROOT%。
+##變量不用於 Mode、Language、Show、Type、Run、UseRelativePath、HeightScale、Variable、WorkingDirectoryMode 等控制字段。
+##註冊表導入使用當前用戶權限。HKCU 通常不需要管理員權限。HKLM、HKCR 等系統區域通常需要以管理員身份運行 EXE。
+
+[Launcher]
+Title=啟動器
+##編輯模式和窗口模式使用的窗口標題，最多 32 個字符。
+Version=1.0.3.0
+##顯示在標題后面的版本文字，最多 32 個字符，可以填寫任意文字。
+Language=zh-Hant
+##界面語言。en-US 表示英文，zh-Hans 表示簡體中文，zh-Hant 表示繁體中文，可選值是 en-US、zh-Hans 和 zh-Hant。
+Mode=0
+##運行模式。0=編輯模式，1=靜默模式，2=窗口模式。
+SplashEnable=0
+##啟動圖開關。0=關閉，1=啟用。啟用但路徑為空或無效時會靜默跳過。
+SplashUseRelativePath=1
+##啟動圖路徑類型。1=相對路徑，以 EXE 所在目錄為基準；0=絕對路徑。
+SplashImage=
+##PNG 啟動圖路徑。只支持 PNG，支持透明通道。
+SplashDurationMs=1000
+##啟動圖顯示時間，單位毫秒。啟用啟動圖時必須填寫 1 到 60000。
+SplashScale=100
+##啟動圖縮放比例。啟用啟動圖時必須填寫 10 到 200，不寫百分號。編輯模式用下拉框選擇，每 5% 一個步進。
+SplashPosition=Center
+##啟動圖位置。啟用啟動圖時必須填寫 Center、TopLeft、TopRight、BottomLeft 或 BottomRight。
+
+[Mode1.Variable1]
+Enable=0
+##可選 0 或 1。1 表示啟用 %XHLM1V1%。
+Value=
+##變量值，最多約 4095 個字符。替換後的運行時文本最多 32767 個 UTF-16 字符。
+
+[Mode1.Variable2]
+Enable=0
+##可選 0 或 1。1 表示啟用 %XHLM1V2%。
+Value=
+##變量值，最多約 4095 個字符。替換後的運行時文本最多 32767 個 UTF-16 字符。
+
+[Mode1.Variable3]
+Enable=0
+##可選 0 或 1。1 表示啟用 %XHLM1V3%。
+Value=
+##變量值，最多約 4095 個字符。替換後的運行時文本最多 32767 個 UTF-16 字符。
+
+[Mode1.Variable4]
+Enable=0
+##可選 0 或 1。1 表示啟用 %XHLM1V4%。
+Value=
+##變量值，最多約 4095 個字符。替換後的運行時文本最多 32767 個 UTF-16 字符。
+
+[Mode1.Variable5]
+Enable=0
+##可選 0 或 1。1 表示啟用 %XHLM1V5%。
+Value=
+##變量值，最多約 4095 個字符。替換後的運行時文本最多 32767 個 UTF-16 字符。
+
+[Mode1.Variable6]
+Enable=0
+##可選 0 或 1。1 表示啟用 %XHLM1V6%。
+Value=
+##變量值，最多約 4095 個字符。替換後的運行時文本最多 32767 個 UTF-16 字符。
+
+[Mode1.Registry]
+AddReg=0
+##可選 0 或 1。1 表示靜默模式導入 RegFileName 指定的 .reg 文件。
+UseRelativePath=1
+##註冊表路徑類型。1=相對路徑，0=絕對路徑。
+RegFileName=
+##註冊表路徑，必須是存在的 .reg 文件。
+RegImported=0
+##標記為已導入。0=允許導入，1=跳過導入。成功導入後程序會寫成 1。
+WorkingDirectoryMode=TargetDir
+##註冊表導入的工作目錄。可選 TargetDir、LauncherDir、Custom。
+WorkingDirectory=
+##自定義工作目錄，僅 WorkingDirectoryMode=Custom 時使用，最終必須是存在的文件夾。
+
+[Mode1.Run1]
+Run=0
+##可選 0 或 1。1 表示靜默模式執行運行項 1。
+UseRelativePath=1
+##路徑類型。1=相對路徑，0=絕對路徑。
+FileName=
+##文件路徑，必須是存在的文件。文件夾路徑會跳過。
+Arguments=
+##啟動參數，主要用於程序。支持模式 1 變量、Windows 環境變量和 %XHLROOT%。
+WorkingDirectoryMode=TargetDir
+##工作目錄模式。可選 TargetDir、LauncherDir、Custom。
+WorkingDirectory=
+##自定義工作目錄，僅 WorkingDirectoryMode=Custom 時使用，最終必須是存在的文件夾。
+
+[Mode1.Run2]
+Run=0
+##可選 0 或 1。1 表示靜默模式執行運行項 2。
+UseRelativePath=1
+##路徑類型。1=相對路徑，0=絕對路徑。
+FileName=
+##文件路徑，必須是存在的文件。文件夾路徑會跳過。
+Arguments=
+##啟動參數，主要用於程序。支持模式 1 變量、Windows 環境變量和 %XHLROOT%。
+WorkingDirectoryMode=TargetDir
+##工作目錄模式。可選 TargetDir、LauncherDir、Custom。
+WorkingDirectory=
+##自定義工作目錄，僅 WorkingDirectoryMode=Custom 時使用，最終必須是存在的文件夾。
+
+[Mode1.Run3]
+Run=0
+##可選 0 或 1。1 表示靜默模式執行運行項 3。
+UseRelativePath=1
+##路徑類型。1=相對路徑，0=絕對路徑。
+FileName=
+##文件路徑，必須是存在的文件。文件夾路徑會跳過。
+Arguments=
+##啟動參數，主要用於程序。支持模式 1 變量、Windows 環境變量和 %XHLROOT%。
+WorkingDirectoryMode=TargetDir
+##工作目錄模式。可選 TargetDir、LauncherDir、Custom。
+WorkingDirectory=
+##自定義工作目錄，僅 WorkingDirectoryMode=Custom 時使用，最終必須是存在的文件夾。
+
+[Mode1.Run4]
+Run=0
+##可選 0 或 1。1 表示靜默模式執行運行項 4。
+UseRelativePath=1
+##路徑類型。1=相對路徑，0=絕對路徑。
+FileName=
+##文件路徑，必須是存在的文件。文件夾路徑會跳過。
+Arguments=
+##啟動參數，主要用於程序。支持模式 1 變量、Windows 環境變量和 %XHLROOT%。
+WorkingDirectoryMode=TargetDir
+##工作目錄模式。可選 TargetDir、LauncherDir、Custom。
+WorkingDirectory=
+##自定義工作目錄，僅 WorkingDirectoryMode=Custom 時使用，最終必須是存在的文件夾。
+
+[Mode1.Run5]
+Run=0
+##可選 0 或 1。1 表示靜默模式執行運行項 5。
+UseRelativePath=1
+##路徑類型。1=相對路徑，0=絕對路徑。
+FileName=
+##文件路徑，必須是存在的文件。文件夾路徑會跳過。
+Arguments=
+##啟動參數，主要用於程序。支持模式 1 變量、Windows 環境變量和 %XHLROOT%。
+WorkingDirectoryMode=TargetDir
+##工作目錄模式。可選 TargetDir、LauncherDir、Custom。
+WorkingDirectory=
+##自定義工作目錄，僅 WorkingDirectoryMode=Custom 時使用，最終必須是存在的文件夾。
+
+##窗口模式變量由輸入框元素寫入。Variable=1 到 6 對應 %XHLM2V1% 到 %XHLM2V6%。替換後的運行時文本最多 32767 個 UTF-16 字符。
+##只讀取 Element1 到 Element10。顯示順序固定為 Element1 到 Element10。Element11 和更高編號會被忽略。
+##支持的 Type 值：Text、TextBox、TextFileBox、Input、OpenButton、MessageButton、RegButton、Table、CloseButton。
+##表格只支持基礎 CSV。第一行是表頭。引號格式不正確時表格會顯示為空。
+
+[Mode2.Element1]
+Show=1
+##可選 0 或 1。1 表示顯示此元素。
+Type=TextBox
+##元素類型。Show=1 時必須選擇有效類型。建議在編輯模式中選擇。
+HeightScale=1
+##僅 TextBox、TextFileBox 和 Table 使用。可選 1、2、3。高倍率元素太多時窗口可能超過屏幕高度。
+Text=歡迎使用。\n請在編輯模式中修改這份模板。
+##顯示文字。TextBox 顯示長文本，Text 顯示一行，最多 512 個字符；按鈕顯示按鈕文字，最多 512 個字符。Input、TextFileBox 和 Table 不使用此項。
+Variable=1
+##僅 Input 使用。可選 1 到 6，對應 %XHLM2V1% 到 %XHLM2V6%。多個輸入框寫同一變量時，元素編號靠後的會覆蓋前面的值。
+Message=這是一條彈窗消息。\n可以用 \n 表示換行。
+##僅 MessageButton 使用。必須寫在一行里，用 \n 表示實際換行。
+RegFileName=
+##僅 RegButton 使用。填寫存在的 .reg 文件，最終路徑必須以 .reg 結尾。
+UseRelativePath=1
+##僅 RegButton 使用。1=相對路徑，0=絕對路徑。
+WorkingDirectoryMode=TargetDir
+##僅 RegButton 使用。可選 TargetDir、LauncherDir、Custom。
+WorkingDirectory=
+##自定義工作目錄，僅 WorkingDirectoryMode=Custom 時使用。
+RegImportingText=
+##僅 RegButton 使用。導入中顯示在按鈕上的文字。留空使用預設文字。
+RegSuccessMessage=
+##僅 RegButton 使用。導入成功後的提示，留空使用預設提示。
+RegFailureMessage=
+##僅 RegButton 使用。導入失敗後的提示。自定義時建議提醒可能已部分導入。
+RegTimeoutMessage=
+##僅 RegButton 使用。導入超過 60 秒後的提示。自定義時建議提醒可能已部分導入。
+CsvFileName=
+##僅 Table 使用。CSV 路徑，最終路徑必須以 .csv 結尾。最多顯示 20 列、1000 行。
+CsvUseRelativePath=1
+##僅 Table 使用。1=相對路徑，0=絕對路徑。
+TextFileName=
+##僅 TextFileBox 使用。文本文件路徑。優先按 UTF-8 讀取；不是有效 UTF-8 時按系統預設代碼頁讀取。支持 CRLF 和 LF 換行。
+TextFileUseRelativePath=1
+##僅 TextFileBox 使用。1=相對路徑，0=絕對路徑。
+Run1=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 1。
+UseRelativePath1=1
+##僅 OpenButton 使用。1 表示 FileName1 是相對路徑，0 表示絕對路徑。
+FileName1=
+##僅 OpenButton 使用。運行項 1 的文件路徑。
+Arguments1=
+##僅 OpenButton 使用。運行項 1 的啟動參數。
+WorkingDirectoryMode1=TargetDir
+##僅 OpenButton 使用。運行項 1 的工作目錄模式。
+WorkingDirectory1=
+##僅 OpenButton 使用。運行項 1 的自定義工作目錄。
+Run2=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 2。
+UseRelativePath2=1
+##僅 OpenButton 使用。1 表示 FileName2 是相對路徑，0 表示絕對路徑。
+FileName2=
+##僅 OpenButton 使用。運行項 2 的文件路徑。
+Arguments2=
+##僅 OpenButton 使用。運行項 2 的啟動參數。
+WorkingDirectoryMode2=TargetDir
+##僅 OpenButton 使用。運行項 2 的工作目錄模式。
+WorkingDirectory2=
+##僅 OpenButton 使用。運行項 2 的自定義工作目錄。
+Run3=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 3。
+UseRelativePath3=1
+##僅 OpenButton 使用。1 表示 FileName3 是相對路徑，0 表示絕對路徑。
+FileName3=
+##僅 OpenButton 使用。運行項 3 的文件路徑。
+Arguments3=
+##僅 OpenButton 使用。運行項 3 的啟動參數。
+WorkingDirectoryMode3=TargetDir
+##僅 OpenButton 使用。運行項 3 的工作目錄模式。
+WorkingDirectory3=
+##僅 OpenButton 使用。運行項 3 的自定義工作目錄。
+Run4=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 4。
+UseRelativePath4=1
+##僅 OpenButton 使用。1 表示 FileName4 是相對路徑，0 表示絕對路徑。
+FileName4=
+##僅 OpenButton 使用。運行項 4 的文件路徑。
+Arguments4=
+##僅 OpenButton 使用。運行項 4 的啟動參數。
+WorkingDirectoryMode4=TargetDir
+##僅 OpenButton 使用。運行項 4 的工作目錄模式。
+WorkingDirectory4=
+##僅 OpenButton 使用。運行項 4 的自定義工作目錄。
+Run5=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 5。
+UseRelativePath5=1
+##僅 OpenButton 使用。1 表示 FileName5 是相對路徑，0 表示絕對路徑。
+FileName5=
+##僅 OpenButton 使用。運行項 5 的文件路徑。
+Arguments5=
+##僅 OpenButton 使用。運行項 5 的啟動參數。
+WorkingDirectoryMode5=TargetDir
+##僅 OpenButton 使用。運行項 5 的工作目錄模式。
+WorkingDirectory5=
+##僅 OpenButton 使用。運行項 5 的自定義工作目錄。
+
+[Mode2.Element2]
+Show=1
+##可選 0 或 1。1 表示顯示此元素。
+Type=Text
+##元素類型。Show=1 時必須選擇有效類型。建議在編輯模式中選擇。
+HeightScale=1
+##僅 TextBox、TextFileBox 和 Table 使用。可選 1、2、3。高倍率元素太多時窗口可能超過屏幕高度。
+Text=單行文本示例
+##顯示文字。TextBox 顯示長文本，Text 顯示一行，最多 512 個字符；按鈕顯示按鈕文字，最多 512 個字符。Input、TextFileBox 和 Table 不使用此項。
+Variable=1
+##僅 Input 使用。可選 1 到 6，對應 %XHLM2V1% 到 %XHLM2V6%。多個輸入框寫同一變量時，元素編號靠後的會覆蓋前面的值。
+Message=這是一條彈窗消息。\n可以用 \n 表示換行。
+##僅 MessageButton 使用。必須寫在一行里，用 \n 表示實際換行。
+RegFileName=
+##僅 RegButton 使用。填寫存在的 .reg 文件，最終路徑必須以 .reg 結尾。
+UseRelativePath=1
+##僅 RegButton 使用。1=相對路徑，0=絕對路徑。
+WorkingDirectoryMode=TargetDir
+##僅 RegButton 使用。可選 TargetDir、LauncherDir、Custom。
+WorkingDirectory=
+##自定義工作目錄，僅 WorkingDirectoryMode=Custom 時使用。
+RegImportingText=
+##僅 RegButton 使用。導入中顯示在按鈕上的文字。留空使用預設文字。
+RegSuccessMessage=
+##僅 RegButton 使用。導入成功後的提示，留空使用預設提示。
+RegFailureMessage=
+##僅 RegButton 使用。導入失敗後的提示。自定義時建議提醒可能已部分導入。
+RegTimeoutMessage=
+##僅 RegButton 使用。導入超過 60 秒後的提示。自定義時建議提醒可能已部分導入。
+CsvFileName=
+##僅 Table 使用。CSV 路徑，最終路徑必須以 .csv 結尾。最多顯示 20 列、1000 行。
+CsvUseRelativePath=1
+##僅 Table 使用。1=相對路徑，0=絕對路徑。
+TextFileName=
+##僅 TextFileBox 使用。文本文件路徑。優先按 UTF-8 讀取；不是有效 UTF-8 時按系統預設代碼頁讀取。支持 CRLF 和 LF 換行。
+TextFileUseRelativePath=1
+##僅 TextFileBox 使用。1=相對路徑，0=絕對路徑。
+Run1=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 1。
+UseRelativePath1=1
+##僅 OpenButton 使用。1 表示 FileName1 是相對路徑，0 表示絕對路徑。
+FileName1=
+##僅 OpenButton 使用。運行項 1 的文件路徑。
+Arguments1=
+##僅 OpenButton 使用。運行項 1 的啟動參數。
+WorkingDirectoryMode1=TargetDir
+##僅 OpenButton 使用。運行項 1 的工作目錄模式。
+WorkingDirectory1=
+##僅 OpenButton 使用。運行項 1 的自定義工作目錄。
+Run2=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 2。
+UseRelativePath2=1
+##僅 OpenButton 使用。1 表示 FileName2 是相對路徑，0 表示絕對路徑。
+FileName2=
+##僅 OpenButton 使用。運行項 2 的文件路徑。
+Arguments2=
+##僅 OpenButton 使用。運行項 2 的啟動參數。
+WorkingDirectoryMode2=TargetDir
+##僅 OpenButton 使用。運行項 2 的工作目錄模式。
+WorkingDirectory2=
+##僅 OpenButton 使用。運行項 2 的自定義工作目錄。
+Run3=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 3。
+UseRelativePath3=1
+##僅 OpenButton 使用。1 表示 FileName3 是相對路徑，0 表示絕對路徑。
+FileName3=
+##僅 OpenButton 使用。運行項 3 的文件路徑。
+Arguments3=
+##僅 OpenButton 使用。運行項 3 的啟動參數。
+WorkingDirectoryMode3=TargetDir
+##僅 OpenButton 使用。運行項 3 的工作目錄模式。
+WorkingDirectory3=
+##僅 OpenButton 使用。運行項 3 的自定義工作目錄。
+Run4=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 4。
+UseRelativePath4=1
+##僅 OpenButton 使用。1 表示 FileName4 是相對路徑，0 表示絕對路徑。
+FileName4=
+##僅 OpenButton 使用。運行項 4 的文件路徑。
+Arguments4=
+##僅 OpenButton 使用。運行項 4 的啟動參數。
+WorkingDirectoryMode4=TargetDir
+##僅 OpenButton 使用。運行項 4 的工作目錄模式。
+WorkingDirectory4=
+##僅 OpenButton 使用。運行項 4 的自定義工作目錄。
+Run5=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 5。
+UseRelativePath5=1
+##僅 OpenButton 使用。1 表示 FileName5 是相對路徑，0 表示絕對路徑。
+FileName5=
+##僅 OpenButton 使用。運行項 5 的文件路徑。
+Arguments5=
+##僅 OpenButton 使用。運行項 5 的啟動參數。
+WorkingDirectoryMode5=TargetDir
+##僅 OpenButton 使用。運行項 5 的工作目錄模式。
+WorkingDirectory5=
+##僅 OpenButton 使用。運行項 5 的自定義工作目錄。
+
+[Mode2.Element3]
+Show=1
+##可選 0 或 1。1 表示顯示此元素。
+Type=Input
+##元素類型。Show=1 時必須選擇有效類型。建議在編輯模式中選擇。
+HeightScale=1
+##僅 TextBox、TextFileBox 和 Table 使用。可選 1、2、3。高倍率元素太多時窗口可能超過屏幕高度。
+Text=
+##顯示文字。TextBox 顯示長文本，Text 顯示一行，最多 512 個字符；按鈕顯示按鈕文字，最多 512 個字符。Input、TextFileBox 和 Table 不使用此項。
+Variable=1
+##僅 Input 使用。可選 1 到 6，對應 %XHLM2V1% 到 %XHLM2V6%。多個輸入框寫同一變量時，元素編號靠後的會覆蓋前面的值。
+Message=這是一條彈窗消息。\n可以用 \n 表示換行。
+##僅 MessageButton 使用。必須寫在一行里，用 \n 表示實際換行。
+RegFileName=
+##僅 RegButton 使用。填寫存在的 .reg 文件，最終路徑必須以 .reg 結尾。
+UseRelativePath=1
+##僅 RegButton 使用。1=相對路徑，0=絕對路徑。
+WorkingDirectoryMode=TargetDir
+##僅 RegButton 使用。可選 TargetDir、LauncherDir、Custom。
+WorkingDirectory=
+##自定義工作目錄，僅 WorkingDirectoryMode=Custom 時使用。
+RegImportingText=
+##僅 RegButton 使用。導入中顯示在按鈕上的文字。留空使用預設文字。
+RegSuccessMessage=
+##僅 RegButton 使用。導入成功後的提示，留空使用預設提示。
+RegFailureMessage=
+##僅 RegButton 使用。導入失敗後的提示。自定義時建議提醒可能已部分導入。
+RegTimeoutMessage=
+##僅 RegButton 使用。導入超過 60 秒後的提示。自定義時建議提醒可能已部分導入。
+CsvFileName=
+##僅 Table 使用。CSV 路徑，最終路徑必須以 .csv 結尾。最多顯示 20 列、1000 行。
+CsvUseRelativePath=1
+##僅 Table 使用。1=相對路徑，0=絕對路徑。
+TextFileName=
+##僅 TextFileBox 使用。文本文件路徑。優先按 UTF-8 讀取；不是有效 UTF-8 時按系統預設代碼頁讀取。支持 CRLF 和 LF 換行。
+TextFileUseRelativePath=1
+##僅 TextFileBox 使用。1=相對路徑，0=絕對路徑。
+Run1=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 1。
+UseRelativePath1=1
+##僅 OpenButton 使用。1 表示 FileName1 是相對路徑，0 表示絕對路徑。
+FileName1=
+##僅 OpenButton 使用。運行項 1 的文件路徑。
+Arguments1=
+##僅 OpenButton 使用。運行項 1 的啟動參數。
+WorkingDirectoryMode1=TargetDir
+##僅 OpenButton 使用。運行項 1 的工作目錄模式。
+WorkingDirectory1=
+##僅 OpenButton 使用。運行項 1 的自定義工作目錄。
+Run2=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 2。
+UseRelativePath2=1
+##僅 OpenButton 使用。1 表示 FileName2 是相對路徑，0 表示絕對路徑。
+FileName2=
+##僅 OpenButton 使用。運行項 2 的文件路徑。
+Arguments2=
+##僅 OpenButton 使用。運行項 2 的啟動參數。
+WorkingDirectoryMode2=TargetDir
+##僅 OpenButton 使用。運行項 2 的工作目錄模式。
+WorkingDirectory2=
+##僅 OpenButton 使用。運行項 2 的自定義工作目錄。
+Run3=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 3。
+UseRelativePath3=1
+##僅 OpenButton 使用。1 表示 FileName3 是相對路徑，0 表示絕對路徑。
+FileName3=
+##僅 OpenButton 使用。運行項 3 的文件路徑。
+Arguments3=
+##僅 OpenButton 使用。運行項 3 的啟動參數。
+WorkingDirectoryMode3=TargetDir
+##僅 OpenButton 使用。運行項 3 的工作目錄模式。
+WorkingDirectory3=
+##僅 OpenButton 使用。運行項 3 的自定義工作目錄。
+Run4=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 4。
+UseRelativePath4=1
+##僅 OpenButton 使用。1 表示 FileName4 是相對路徑，0 表示絕對路徑。
+FileName4=
+##僅 OpenButton 使用。運行項 4 的文件路徑。
+Arguments4=
+##僅 OpenButton 使用。運行項 4 的啟動參數。
+WorkingDirectoryMode4=TargetDir
+##僅 OpenButton 使用。運行項 4 的工作目錄模式。
+WorkingDirectory4=
+##僅 OpenButton 使用。運行項 4 的自定義工作目錄。
+Run5=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 5。
+UseRelativePath5=1
+##僅 OpenButton 使用。1 表示 FileName5 是相對路徑，0 表示絕對路徑。
+FileName5=
+##僅 OpenButton 使用。運行項 5 的文件路徑。
+Arguments5=
+##僅 OpenButton 使用。運行項 5 的啟動參數。
+WorkingDirectoryMode5=TargetDir
+##僅 OpenButton 使用。運行項 5 的工作目錄模式。
+WorkingDirectory5=
+##僅 OpenButton 使用。運行項 5 的自定義工作目錄。
+
+[Mode2.Element4]
+Show=1
+##可選 0 或 1。1 表示顯示此元素。
+Type=OpenButton
+##元素類型。Show=1 時必須選擇有效類型。建議在編輯模式中選擇。
+HeightScale=1
+##僅 TextBox、TextFileBox 和 Table 使用。可選 1、2、3。高倍率元素太多時窗口可能超過屏幕高度。
+Text=打開文件
+##顯示文字。TextBox 顯示長文本，Text 顯示一行，最多 512 個字符；按鈕顯示按鈕文字，最多 512 個字符。Input、TextFileBox 和 Table 不使用此項。
+Variable=1
+##僅 Input 使用。可選 1 到 6，對應 %XHLM2V1% 到 %XHLM2V6%。多個輸入框寫同一變量時，元素編號靠後的會覆蓋前面的值。
+Message=這是一條彈窗消息。\n可以用 \n 表示換行。
+##僅 MessageButton 使用。必須寫在一行里，用 \n 表示實際換行。
+RegFileName=
+##僅 RegButton 使用。填寫存在的 .reg 文件，最終路徑必須以 .reg 結尾。
+UseRelativePath=1
+##僅 RegButton 使用。1=相對路徑，0=絕對路徑。
+WorkingDirectoryMode=TargetDir
+##僅 RegButton 使用。可選 TargetDir、LauncherDir、Custom。
+WorkingDirectory=
+##自定義工作目錄，僅 WorkingDirectoryMode=Custom 時使用。
+RegImportingText=
+##僅 RegButton 使用。導入中顯示在按鈕上的文字。留空使用預設文字。
+RegSuccessMessage=
+##僅 RegButton 使用。導入成功後的提示，留空使用預設提示。
+RegFailureMessage=
+##僅 RegButton 使用。導入失敗後的提示。自定義時建議提醒可能已部分導入。
+RegTimeoutMessage=
+##僅 RegButton 使用。導入超過 60 秒後的提示。自定義時建議提醒可能已部分導入。
+CsvFileName=
+##僅 Table 使用。CSV 路徑，最終路徑必須以 .csv 結尾。最多顯示 20 列、1000 行。
+CsvUseRelativePath=1
+##僅 Table 使用。1=相對路徑，0=絕對路徑。
+TextFileName=
+##僅 TextFileBox 使用。文本文件路徑。優先按 UTF-8 讀取；不是有效 UTF-8 時按系統預設代碼頁讀取。支持 CRLF 和 LF 換行。
+TextFileUseRelativePath=1
+##僅 TextFileBox 使用。1=相對路徑，0=絕對路徑。
+Run1=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 1。
+UseRelativePath1=1
+##僅 OpenButton 使用。1 表示 FileName1 是相對路徑，0 表示絕對路徑。
+FileName1=
+##僅 OpenButton 使用。運行項 1 的文件路徑。
+Arguments1=
+##僅 OpenButton 使用。運行項 1 的啟動參數。
+WorkingDirectoryMode1=TargetDir
+##僅 OpenButton 使用。運行項 1 的工作目錄模式。
+WorkingDirectory1=
+##僅 OpenButton 使用。運行項 1 的自定義工作目錄。
+Run2=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 2。
+UseRelativePath2=1
+##僅 OpenButton 使用。1 表示 FileName2 是相對路徑，0 表示絕對路徑。
+FileName2=
+##僅 OpenButton 使用。運行項 2 的文件路徑。
+Arguments2=
+##僅 OpenButton 使用。運行項 2 的啟動參數。
+WorkingDirectoryMode2=TargetDir
+##僅 OpenButton 使用。運行項 2 的工作目錄模式。
+WorkingDirectory2=
+##僅 OpenButton 使用。運行項 2 的自定義工作目錄。
+Run3=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 3。
+UseRelativePath3=1
+##僅 OpenButton 使用。1 表示 FileName3 是相對路徑，0 表示絕對路徑。
+FileName3=
+##僅 OpenButton 使用。運行項 3 的文件路徑。
+Arguments3=
+##僅 OpenButton 使用。運行項 3 的啟動參數。
+WorkingDirectoryMode3=TargetDir
+##僅 OpenButton 使用。運行項 3 的工作目錄模式。
+WorkingDirectory3=
+##僅 OpenButton 使用。運行項 3 的自定義工作目錄。
+Run4=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 4。
+UseRelativePath4=1
+##僅 OpenButton 使用。1 表示 FileName4 是相對路徑，0 表示絕對路徑。
+FileName4=
+##僅 OpenButton 使用。運行項 4 的文件路徑。
+Arguments4=
+##僅 OpenButton 使用。運行項 4 的啟動參數。
+WorkingDirectoryMode4=TargetDir
+##僅 OpenButton 使用。運行項 4 的工作目錄模式。
+WorkingDirectory4=
+##僅 OpenButton 使用。運行項 4 的自定義工作目錄。
+Run5=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 5。
+UseRelativePath5=1
+##僅 OpenButton 使用。1 表示 FileName5 是相對路徑，0 表示絕對路徑。
+FileName5=
+##僅 OpenButton 使用。運行項 5 的文件路徑。
+Arguments5=
+##僅 OpenButton 使用。運行項 5 的啟動參數。
+WorkingDirectoryMode5=TargetDir
+##僅 OpenButton 使用。運行項 5 的工作目錄模式。
+WorkingDirectory5=
+##僅 OpenButton 使用。運行項 5 的自定義工作目錄。
+
+[Mode2.Element5]
+Show=1
+##可選 0 或 1。1 表示顯示此元素。
+Type=MessageButton
+##元素類型。Show=1 時必須選擇有效類型。建議在編輯模式中選擇。
+HeightScale=1
+##僅 TextBox、TextFileBox 和 Table 使用。可選 1、2、3。高倍率元素太多時窗口可能超過屏幕高度。
+Text=彈窗
+##顯示文字。TextBox 顯示長文本，Text 顯示一行，最多 512 個字符；按鈕顯示按鈕文字，最多 512 個字符。Input、TextFileBox 和 Table 不使用此項。
+Variable=1
+##僅 Input 使用。可選 1 到 6，對應 %XHLM2V1% 到 %XHLM2V6%。多個輸入框寫同一變量時，元素編號靠後的會覆蓋前面的值。
+Message=這是一條彈窗消息。\n可以用 \n 表示換行。
+##僅 MessageButton 使用。必須寫在一行里，用 \n 表示實際換行。
+RegFileName=
+##僅 RegButton 使用。填寫存在的 .reg 文件，最終路徑必須以 .reg 結尾。
+UseRelativePath=1
+##僅 RegButton 使用。1=相對路徑，0=絕對路徑。
+WorkingDirectoryMode=TargetDir
+##僅 RegButton 使用。可選 TargetDir、LauncherDir、Custom。
+WorkingDirectory=
+##自定義工作目錄，僅 WorkingDirectoryMode=Custom 時使用。
+RegImportingText=
+##僅 RegButton 使用。導入中顯示在按鈕上的文字。留空使用預設文字。
+RegSuccessMessage=
+##僅 RegButton 使用。導入成功後的提示，留空使用預設提示。
+RegFailureMessage=
+##僅 RegButton 使用。導入失敗後的提示。自定義時建議提醒可能已部分導入。
+RegTimeoutMessage=
+##僅 RegButton 使用。導入超過 60 秒後的提示。自定義時建議提醒可能已部分導入。
+CsvFileName=
+##僅 Table 使用。CSV 路徑，最終路徑必須以 .csv 結尾。最多顯示 20 列、1000 行。
+CsvUseRelativePath=1
+##僅 Table 使用。1=相對路徑，0=絕對路徑。
+TextFileName=
+##僅 TextFileBox 使用。文本文件路徑。優先按 UTF-8 讀取；不是有效 UTF-8 時按系統預設代碼頁讀取。支持 CRLF 和 LF 換行。
+TextFileUseRelativePath=1
+##僅 TextFileBox 使用。1=相對路徑，0=絕對路徑。
+Run1=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 1。
+UseRelativePath1=1
+##僅 OpenButton 使用。1 表示 FileName1 是相對路徑，0 表示絕對路徑。
+FileName1=
+##僅 OpenButton 使用。運行項 1 的文件路徑。
+Arguments1=
+##僅 OpenButton 使用。運行項 1 的啟動參數。
+WorkingDirectoryMode1=TargetDir
+##僅 OpenButton 使用。運行項 1 的工作目錄模式。
+WorkingDirectory1=
+##僅 OpenButton 使用。運行項 1 的自定義工作目錄。
+Run2=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 2。
+UseRelativePath2=1
+##僅 OpenButton 使用。1 表示 FileName2 是相對路徑，0 表示絕對路徑。
+FileName2=
+##僅 OpenButton 使用。運行項 2 的文件路徑。
+Arguments2=
+##僅 OpenButton 使用。運行項 2 的啟動參數。
+WorkingDirectoryMode2=TargetDir
+##僅 OpenButton 使用。運行項 2 的工作目錄模式。
+WorkingDirectory2=
+##僅 OpenButton 使用。運行項 2 的自定義工作目錄。
+Run3=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 3。
+UseRelativePath3=1
+##僅 OpenButton 使用。1 表示 FileName3 是相對路徑，0 表示絕對路徑。
+FileName3=
+##僅 OpenButton 使用。運行項 3 的文件路徑。
+Arguments3=
+##僅 OpenButton 使用。運行項 3 的啟動參數。
+WorkingDirectoryMode3=TargetDir
+##僅 OpenButton 使用。運行項 3 的工作目錄模式。
+WorkingDirectory3=
+##僅 OpenButton 使用。運行項 3 的自定義工作目錄。
+Run4=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 4。
+UseRelativePath4=1
+##僅 OpenButton 使用。1 表示 FileName4 是相對路徑，0 表示絕對路徑。
+FileName4=
+##僅 OpenButton 使用。運行項 4 的文件路徑。
+Arguments4=
+##僅 OpenButton 使用。運行項 4 的啟動參數。
+WorkingDirectoryMode4=TargetDir
+##僅 OpenButton 使用。運行項 4 的工作目錄模式。
+WorkingDirectory4=
+##僅 OpenButton 使用。運行項 4 的自定義工作目錄。
+Run5=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 5。
+UseRelativePath5=1
+##僅 OpenButton 使用。1 表示 FileName5 是相對路徑，0 表示絕對路徑。
+FileName5=
+##僅 OpenButton 使用。運行項 5 的文件路徑。
+Arguments5=
+##僅 OpenButton 使用。運行項 5 的啟動參數。
+WorkingDirectoryMode5=TargetDir
+##僅 OpenButton 使用。運行項 5 的工作目錄模式。
+WorkingDirectory5=
+##僅 OpenButton 使用。運行項 5 的自定義工作目錄。
+
+[Mode2.Element6]
+Show=1
+##可選 0 或 1。1 表示顯示此元素。
+Type=RegButton
+##元素類型。Show=1 時必須選擇有效類型。建議在編輯模式中選擇。
+HeightScale=1
+##僅 TextBox、TextFileBox 和 Table 使用。可選 1、2、3。高倍率元素太多時窗口可能超過屏幕高度。
+Text=導入註冊表
+##顯示文字。TextBox 顯示長文本，Text 顯示一行，最多 512 個字符；按鈕顯示按鈕文字，最多 512 個字符。Input、TextFileBox 和 Table 不使用此項。
+Variable=1
+##僅 Input 使用。可選 1 到 6，對應 %XHLM2V1% 到 %XHLM2V6%。多個輸入框寫同一變量時，元素編號靠後的會覆蓋前面的值。
+Message=這是一條彈窗消息。\n可以用 \n 表示換行。
+##僅 MessageButton 使用。必須寫在一行里，用 \n 表示實際換行。
+RegFileName=
+##僅 RegButton 使用。填寫存在的 .reg 文件，最終路徑必須以 .reg 結尾。
+UseRelativePath=1
+##僅 RegButton 使用。1=相對路徑，0=絕對路徑。
+WorkingDirectoryMode=TargetDir
+##僅 RegButton 使用。可選 TargetDir、LauncherDir、Custom。
+WorkingDirectory=
+##自定義工作目錄，僅 WorkingDirectoryMode=Custom 時使用。
+RegImportingText=
+##僅 RegButton 使用。導入中顯示在按鈕上的文字。留空使用預設文字。
+RegSuccessMessage=
+##僅 RegButton 使用。導入成功後的提示，留空使用預設提示。
+RegFailureMessage=
+##僅 RegButton 使用。導入失敗後的提示。自定義時建議提醒可能已部分導入。
+RegTimeoutMessage=
+##僅 RegButton 使用。導入超過 60 秒後的提示。自定義時建議提醒可能已部分導入。
+CsvFileName=
+##僅 Table 使用。CSV 路徑，最終路徑必須以 .csv 結尾。最多顯示 20 列、1000 行。
+CsvUseRelativePath=1
+##僅 Table 使用。1=相對路徑，0=絕對路徑。
+TextFileName=
+##僅 TextFileBox 使用。文本文件路徑。優先按 UTF-8 讀取；不是有效 UTF-8 時按系統預設代碼頁讀取。支持 CRLF 和 LF 換行。
+TextFileUseRelativePath=1
+##僅 TextFileBox 使用。1=相對路徑，0=絕對路徑。
+Run1=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 1。
+UseRelativePath1=1
+##僅 OpenButton 使用。1 表示 FileName1 是相對路徑，0 表示絕對路徑。
+FileName1=
+##僅 OpenButton 使用。運行項 1 的文件路徑。
+Arguments1=
+##僅 OpenButton 使用。運行項 1 的啟動參數。
+WorkingDirectoryMode1=TargetDir
+##僅 OpenButton 使用。運行項 1 的工作目錄模式。
+WorkingDirectory1=
+##僅 OpenButton 使用。運行項 1 的自定義工作目錄。
+Run2=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 2。
+UseRelativePath2=1
+##僅 OpenButton 使用。1 表示 FileName2 是相對路徑，0 表示絕對路徑。
+FileName2=
+##僅 OpenButton 使用。運行項 2 的文件路徑。
+Arguments2=
+##僅 OpenButton 使用。運行項 2 的啟動參數。
+WorkingDirectoryMode2=TargetDir
+##僅 OpenButton 使用。運行項 2 的工作目錄模式。
+WorkingDirectory2=
+##僅 OpenButton 使用。運行項 2 的自定義工作目錄。
+Run3=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 3。
+UseRelativePath3=1
+##僅 OpenButton 使用。1 表示 FileName3 是相對路徑，0 表示絕對路徑。
+FileName3=
+##僅 OpenButton 使用。運行項 3 的文件路徑。
+Arguments3=
+##僅 OpenButton 使用。運行項 3 的啟動參數。
+WorkingDirectoryMode3=TargetDir
+##僅 OpenButton 使用。運行項 3 的工作目錄模式。
+WorkingDirectory3=
+##僅 OpenButton 使用。運行項 3 的自定義工作目錄。
+Run4=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 4。
+UseRelativePath4=1
+##僅 OpenButton 使用。1 表示 FileName4 是相對路徑，0 表示絕對路徑。
+FileName4=
+##僅 OpenButton 使用。運行項 4 的文件路徑。
+Arguments4=
+##僅 OpenButton 使用。運行項 4 的啟動參數。
+WorkingDirectoryMode4=TargetDir
+##僅 OpenButton 使用。運行項 4 的工作目錄模式。
+WorkingDirectory4=
+##僅 OpenButton 使用。運行項 4 的自定義工作目錄。
+Run5=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 5。
+UseRelativePath5=1
+##僅 OpenButton 使用。1 表示 FileName5 是相對路徑，0 表示絕對路徑。
+FileName5=
+##僅 OpenButton 使用。運行項 5 的文件路徑。
+Arguments5=
+##僅 OpenButton 使用。運行項 5 的啟動參數。
+WorkingDirectoryMode5=TargetDir
+##僅 OpenButton 使用。運行項 5 的工作目錄模式。
+WorkingDirectory5=
+##僅 OpenButton 使用。運行項 5 的自定義工作目錄。
+
+[Mode2.Element7]
+Show=1
+##可選 0 或 1。1 表示顯示此元素。
+Type=Table
+##元素類型。Show=1 時必須選擇有效類型。建議在編輯模式中選擇。
+HeightScale=1
+##僅 TextBox、TextFileBox 和 Table 使用。可選 1、2、3。高倍率元素太多時窗口可能超過屏幕高度。
+Text=
+##顯示文字。TextBox 顯示長文本，Text 顯示一行，最多 512 個字符；按鈕顯示按鈕文字，最多 512 個字符。Input、TextFileBox 和 Table 不使用此項。
+Variable=1
+##僅 Input 使用。可選 1 到 6，對應 %XHLM2V1% 到 %XHLM2V6%。多個輸入框寫同一變量時，元素編號靠後的會覆蓋前面的值。
+Message=這是一條彈窗消息。\n可以用 \n 表示換行。
+##僅 MessageButton 使用。必須寫在一行里，用 \n 表示實際換行。
+RegFileName=
+##僅 RegButton 使用。填寫存在的 .reg 文件，最終路徑必須以 .reg 結尾。
+UseRelativePath=1
+##僅 RegButton 使用。1=相對路徑，0=絕對路徑。
+WorkingDirectoryMode=TargetDir
+##僅 RegButton 使用。可選 TargetDir、LauncherDir、Custom。
+WorkingDirectory=
+##自定義工作目錄，僅 WorkingDirectoryMode=Custom 時使用。
+RegImportingText=
+##僅 RegButton 使用。導入中顯示在按鈕上的文字。留空使用預設文字。
+RegSuccessMessage=
+##僅 RegButton 使用。導入成功後的提示，留空使用預設提示。
+RegFailureMessage=
+##僅 RegButton 使用。導入失敗後的提示。自定義時建議提醒可能已部分導入。
+RegTimeoutMessage=
+##僅 RegButton 使用。導入超過 60 秒後的提示。自定義時建議提醒可能已部分導入。
+CsvFileName=Example.csv
+##僅 Table 使用。CSV 路徑，最終路徑必須以 .csv 結尾。最多顯示 20 列、1000 行。
+CsvUseRelativePath=1
+##僅 Table 使用。1=相對路徑，0=絕對路徑。
+TextFileName=
+##僅 TextFileBox 使用。文本文件路徑。優先按 UTF-8 讀取；不是有效 UTF-8 時按系統預設代碼頁讀取。支持 CRLF 和 LF 換行。
+TextFileUseRelativePath=1
+##僅 TextFileBox 使用。1=相對路徑，0=絕對路徑。
+Run1=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 1。
+UseRelativePath1=1
+##僅 OpenButton 使用。1 表示 FileName1 是相對路徑，0 表示絕對路徑。
+FileName1=
+##僅 OpenButton 使用。運行項 1 的文件路徑。
+Arguments1=
+##僅 OpenButton 使用。運行項 1 的啟動參數。
+WorkingDirectoryMode1=TargetDir
+##僅 OpenButton 使用。運行項 1 的工作目錄模式。
+WorkingDirectory1=
+##僅 OpenButton 使用。運行項 1 的自定義工作目錄。
+Run2=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 2。
+UseRelativePath2=1
+##僅 OpenButton 使用。1 表示 FileName2 是相對路徑，0 表示絕對路徑。
+FileName2=
+##僅 OpenButton 使用。運行項 2 的文件路徑。
+Arguments2=
+##僅 OpenButton 使用。運行項 2 的啟動參數。
+WorkingDirectoryMode2=TargetDir
+##僅 OpenButton 使用。運行項 2 的工作目錄模式。
+WorkingDirectory2=
+##僅 OpenButton 使用。運行項 2 的自定義工作目錄。
+Run3=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 3。
+UseRelativePath3=1
+##僅 OpenButton 使用。1 表示 FileName3 是相對路徑，0 表示絕對路徑。
+FileName3=
+##僅 OpenButton 使用。運行項 3 的文件路徑。
+Arguments3=
+##僅 OpenButton 使用。運行項 3 的啟動參數。
+WorkingDirectoryMode3=TargetDir
+##僅 OpenButton 使用。運行項 3 的工作目錄模式。
+WorkingDirectory3=
+##僅 OpenButton 使用。運行項 3 的自定義工作目錄。
+Run4=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 4。
+UseRelativePath4=1
+##僅 OpenButton 使用。1 表示 FileName4 是相對路徑，0 表示絕對路徑。
+FileName4=
+##僅 OpenButton 使用。運行項 4 的文件路徑。
+Arguments4=
+##僅 OpenButton 使用。運行項 4 的啟動參數。
+WorkingDirectoryMode4=TargetDir
+##僅 OpenButton 使用。運行項 4 的工作目錄模式。
+WorkingDirectory4=
+##僅 OpenButton 使用。運行項 4 的自定義工作目錄。
+Run5=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 5。
+UseRelativePath5=1
+##僅 OpenButton 使用。1 表示 FileName5 是相對路徑，0 表示絕對路徑。
+FileName5=
+##僅 OpenButton 使用。運行項 5 的文件路徑。
+Arguments5=
+##僅 OpenButton 使用。運行項 5 的啟動參數。
+WorkingDirectoryMode5=TargetDir
+##僅 OpenButton 使用。運行項 5 的工作目錄模式。
+WorkingDirectory5=
+##僅 OpenButton 使用。運行項 5 的自定義工作目錄。
+
+[Mode2.Element8]
+Show=1
+##可選 0 或 1。1 表示顯示此元素。
+Type=TextFileBox
+##元素類型。Show=1 時必須選擇有效類型。建議在編輯模式中選擇。
+HeightScale=1
+##僅 TextBox、TextFileBox 和 Table 使用。可選 1、2、3。高倍率元素太多時窗口可能超過屏幕高度。
+Text=
+##顯示文字。TextBox 顯示長文本，Text 顯示一行，最多 512 個字符；按鈕顯示按鈕文字，最多 512 個字符。Input、TextFileBox 和 Table 不使用此項。
+Variable=1
+##僅 Input 使用。可選 1 到 6，對應 %XHLM2V1% 到 %XHLM2V6%。多個輸入框寫同一變量時，元素編號靠後的會覆蓋前面的值。
+Message=這是一條彈窗消息。\n可以用 \n 表示換行。
+##僅 MessageButton 使用。必須寫在一行里，用 \n 表示實際換行。
+RegFileName=
+##僅 RegButton 使用。填寫存在的 .reg 文件，最終路徑必須以 .reg 結尾。
+UseRelativePath=1
+##僅 RegButton 使用。1=相對路徑，0=絕對路徑。
+WorkingDirectoryMode=TargetDir
+##僅 RegButton 使用。可選 TargetDir、LauncherDir、Custom。
+WorkingDirectory=
+##自定義工作目錄，僅 WorkingDirectoryMode=Custom 時使用。
+RegImportingText=
+##僅 RegButton 使用。導入中顯示在按鈕上的文字。留空使用預設文字。
+RegSuccessMessage=
+##僅 RegButton 使用。導入成功後的提示，留空使用預設提示。
+RegFailureMessage=
+##僅 RegButton 使用。導入失敗後的提示。自定義時建議提醒可能已部分導入。
+RegTimeoutMessage=
+##僅 RegButton 使用。導入超過 60 秒後的提示。自定義時建議提醒可能已部分導入。
+CsvFileName=
+##僅 Table 使用。CSV 路徑，最終路徑必須以 .csv 結尾。最多顯示 20 列、1000 行。
+CsvUseRelativePath=1
+##僅 Table 使用。1=相對路徑，0=絕對路徑。
+TextFileName=
+##僅 TextFileBox 使用。文本文件路徑。優先按 UTF-8 讀取；不是有效 UTF-8 時按系統預設代碼頁讀取。支持 CRLF 和 LF 換行。
+TextFileUseRelativePath=1
+##僅 TextFileBox 使用。1=相對路徑，0=絕對路徑。
+Run1=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 1。
+UseRelativePath1=1
+##僅 OpenButton 使用。1 表示 FileName1 是相對路徑，0 表示絕對路徑。
+FileName1=
+##僅 OpenButton 使用。運行項 1 的文件路徑。
+Arguments1=
+##僅 OpenButton 使用。運行項 1 的啟動參數。
+WorkingDirectoryMode1=TargetDir
+##僅 OpenButton 使用。運行項 1 的工作目錄模式。
+WorkingDirectory1=
+##僅 OpenButton 使用。運行項 1 的自定義工作目錄。
+Run2=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 2。
+UseRelativePath2=1
+##僅 OpenButton 使用。1 表示 FileName2 是相對路徑，0 表示絕對路徑。
+FileName2=
+##僅 OpenButton 使用。運行項 2 的文件路徑。
+Arguments2=
+##僅 OpenButton 使用。運行項 2 的啟動參數。
+WorkingDirectoryMode2=TargetDir
+##僅 OpenButton 使用。運行項 2 的工作目錄模式。
+WorkingDirectory2=
+##僅 OpenButton 使用。運行項 2 的自定義工作目錄。
+Run3=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 3。
+UseRelativePath3=1
+##僅 OpenButton 使用。1 表示 FileName3 是相對路徑，0 表示絕對路徑。
+FileName3=
+##僅 OpenButton 使用。運行項 3 的文件路徑。
+Arguments3=
+##僅 OpenButton 使用。運行項 3 的啟動參數。
+WorkingDirectoryMode3=TargetDir
+##僅 OpenButton 使用。運行項 3 的工作目錄模式。
+WorkingDirectory3=
+##僅 OpenButton 使用。運行項 3 的自定義工作目錄。
+Run4=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 4。
+UseRelativePath4=1
+##僅 OpenButton 使用。1 表示 FileName4 是相對路徑，0 表示絕對路徑。
+FileName4=
+##僅 OpenButton 使用。運行項 4 的文件路徑。
+Arguments4=
+##僅 OpenButton 使用。運行項 4 的啟動參數。
+WorkingDirectoryMode4=TargetDir
+##僅 OpenButton 使用。運行項 4 的工作目錄模式。
+WorkingDirectory4=
+##僅 OpenButton 使用。運行項 4 的自定義工作目錄。
+Run5=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 5。
+UseRelativePath5=1
+##僅 OpenButton 使用。1 表示 FileName5 是相對路徑，0 表示絕對路徑。
+FileName5=
+##僅 OpenButton 使用。運行項 5 的文件路徑。
+Arguments5=
+##僅 OpenButton 使用。運行項 5 的啟動參數。
+WorkingDirectoryMode5=TargetDir
+##僅 OpenButton 使用。運行項 5 的工作目錄模式。
+WorkingDirectory5=
+##僅 OpenButton 使用。運行項 5 的自定義工作目錄。
+
+[Mode2.Element9]
+Show=1
+##可選 0 或 1。1 表示顯示此元素。
+Type=Text
+##元素類型。Show=1 時必須選擇有效類型。建議在編輯模式中選擇。
+HeightScale=1
+##僅 TextBox、TextFileBox 和 Table 使用。可選 1、2、3。高倍率元素太多時窗口可能超過屏幕高度。
+Text=最小化
+##顯示文字。TextBox 顯示長文本，Text 顯示一行，最多 512 個字符；按鈕顯示按鈕文字，最多 512 個字符。Input、TextFileBox 和 Table 不使用此項。
+Variable=1
+##僅 Input 使用。可選 1 到 6，對應 %XHLM2V1% 到 %XHLM2V6%。多個輸入框寫同一變量時，元素編號靠後的會覆蓋前面的值。
+Message=這是一條彈窗消息。\n可以用 \n 表示換行。
+##僅 MessageButton 使用。必須寫在一行里，用 \n 表示實際換行。
+RegFileName=
+##僅 RegButton 使用。填寫存在的 .reg 文件，最終路徑必須以 .reg 結尾。
+UseRelativePath=1
+##僅 RegButton 使用。1=相對路徑，0=絕對路徑。
+WorkingDirectoryMode=TargetDir
+##僅 RegButton 使用。可選 TargetDir、LauncherDir、Custom。
+WorkingDirectory=
+##自定義工作目錄，僅 WorkingDirectoryMode=Custom 時使用。
+RegImportingText=
+##僅 RegButton 使用。導入中顯示在按鈕上的文字。留空使用預設文字。
+RegSuccessMessage=
+##僅 RegButton 使用。導入成功後的提示，留空使用預設提示。
+RegFailureMessage=
+##僅 RegButton 使用。導入失敗後的提示。自定義時建議提醒可能已部分導入。
+RegTimeoutMessage=
+##僅 RegButton 使用。導入超過 60 秒後的提示。自定義時建議提醒可能已部分導入。
+CsvFileName=
+##僅 Table 使用。CSV 路徑，最終路徑必須以 .csv 結尾。最多顯示 20 列、1000 行。
+CsvUseRelativePath=1
+##僅 Table 使用。1=相對路徑，0=絕對路徑。
+TextFileName=
+##僅 TextFileBox 使用。文本文件路徑。優先按 UTF-8 讀取；不是有效 UTF-8 時按系統預設代碼頁讀取。支持 CRLF 和 LF 換行。
+TextFileUseRelativePath=1
+##僅 TextFileBox 使用。1=相對路徑，0=絕對路徑。
+Run1=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 1。
+UseRelativePath1=1
+##僅 OpenButton 使用。1 表示 FileName1 是相對路徑，0 表示絕對路徑。
+FileName1=
+##僅 OpenButton 使用。運行項 1 的文件路徑。
+Arguments1=
+##僅 OpenButton 使用。運行項 1 的啟動參數。
+WorkingDirectoryMode1=TargetDir
+##僅 OpenButton 使用。運行項 1 的工作目錄模式。
+WorkingDirectory1=
+##僅 OpenButton 使用。運行項 1 的自定義工作目錄。
+Run2=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 2。
+UseRelativePath2=1
+##僅 OpenButton 使用。1 表示 FileName2 是相對路徑，0 表示絕對路徑。
+FileName2=
+##僅 OpenButton 使用。運行項 2 的文件路徑。
+Arguments2=
+##僅 OpenButton 使用。運行項 2 的啟動參數。
+WorkingDirectoryMode2=TargetDir
+##僅 OpenButton 使用。運行項 2 的工作目錄模式。
+WorkingDirectory2=
+##僅 OpenButton 使用。運行項 2 的自定義工作目錄。
+Run3=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 3。
+UseRelativePath3=1
+##僅 OpenButton 使用。1 表示 FileName3 是相對路徑，0 表示絕對路徑。
+FileName3=
+##僅 OpenButton 使用。運行項 3 的文件路徑。
+Arguments3=
+##僅 OpenButton 使用。運行項 3 的啟動參數。
+WorkingDirectoryMode3=TargetDir
+##僅 OpenButton 使用。運行項 3 的工作目錄模式。
+WorkingDirectory3=
+##僅 OpenButton 使用。運行項 3 的自定義工作目錄。
+Run4=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 4。
+UseRelativePath4=1
+##僅 OpenButton 使用。1 表示 FileName4 是相對路徑，0 表示絕對路徑。
+FileName4=
+##僅 OpenButton 使用。運行項 4 的文件路徑。
+Arguments4=
+##僅 OpenButton 使用。運行項 4 的啟動參數。
+WorkingDirectoryMode4=TargetDir
+##僅 OpenButton 使用。運行項 4 的工作目錄模式。
+WorkingDirectory4=
+##僅 OpenButton 使用。運行項 4 的自定義工作目錄。
+Run5=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 5。
+UseRelativePath5=1
+##僅 OpenButton 使用。1 表示 FileName5 是相對路徑，0 表示絕對路徑。
+FileName5=
+##僅 OpenButton 使用。運行項 5 的文件路徑。
+Arguments5=
+##僅 OpenButton 使用。運行項 5 的啟動參數。
+WorkingDirectoryMode5=TargetDir
+##僅 OpenButton 使用。運行項 5 的工作目錄模式。
+WorkingDirectory5=
+##僅 OpenButton 使用。運行項 5 的自定義工作目錄。
+
+[Mode2.Element10]
+Show=1
+##可選 0 或 1。1 表示顯示此元素。
+Type=CloseButton
+##元素類型。Show=1 時必須選擇有效類型。建議在編輯模式中選擇。
+HeightScale=1
+##僅 TextBox、TextFileBox 和 Table 使用。可選 1、2、3。高倍率元素太多時窗口可能超過屏幕高度。
+Text=關閉
+##顯示文字。TextBox 顯示長文本，Text 顯示一行，最多 512 個字符；按鈕顯示按鈕文字，最多 512 個字符。Input、TextFileBox 和 Table 不使用此項。
+Variable=1
+##僅 Input 使用。可選 1 到 6，對應 %XHLM2V1% 到 %XHLM2V6%。多個輸入框寫同一變量時，元素編號靠後的會覆蓋前面的值。
+Message=這是一條彈窗消息。\n可以用 \n 表示換行。
+##僅 MessageButton 使用。必須寫在一行里，用 \n 表示實際換行。
+RegFileName=
+##僅 RegButton 使用。填寫存在的 .reg 文件，最終路徑必須以 .reg 結尾。
+UseRelativePath=1
+##僅 RegButton 使用。1=相對路徑，0=絕對路徑。
+WorkingDirectoryMode=TargetDir
+##僅 RegButton 使用。可選 TargetDir、LauncherDir、Custom。
+WorkingDirectory=
+##自定義工作目錄，僅 WorkingDirectoryMode=Custom 時使用。
+RegImportingText=
+##僅 RegButton 使用。導入中顯示在按鈕上的文字。留空使用預設文字。
+RegSuccessMessage=
+##僅 RegButton 使用。導入成功後的提示，留空使用預設提示。
+RegFailureMessage=
+##僅 RegButton 使用。導入失敗後的提示。自定義時建議提醒可能已部分導入。
+RegTimeoutMessage=
+##僅 RegButton 使用。導入超過 60 秒後的提示。自定義時建議提醒可能已部分導入。
+CsvFileName=
+##僅 Table 使用。CSV 路徑，最終路徑必須以 .csv 結尾。最多顯示 20 列、1000 行。
+CsvUseRelativePath=1
+##僅 Table 使用。1=相對路徑，0=絕對路徑。
+TextFileName=
+##僅 TextFileBox 使用。文本文件路徑。優先按 UTF-8 讀取；不是有效 UTF-8 時按系統預設代碼頁讀取。支持 CRLF 和 LF 換行。
+TextFileUseRelativePath=1
+##僅 TextFileBox 使用。1=相對路徑，0=絕對路徑。
+Run1=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 1。
+UseRelativePath1=1
+##僅 OpenButton 使用。1 表示 FileName1 是相對路徑，0 表示絕對路徑。
+FileName1=
+##僅 OpenButton 使用。運行項 1 的文件路徑。
+Arguments1=
+##僅 OpenButton 使用。運行項 1 的啟動參數。
+WorkingDirectoryMode1=TargetDir
+##僅 OpenButton 使用。運行項 1 的工作目錄模式。
+WorkingDirectory1=
+##僅 OpenButton 使用。運行項 1 的自定義工作目錄。
+Run2=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 2。
+UseRelativePath2=1
+##僅 OpenButton 使用。1 表示 FileName2 是相對路徑，0 表示絕對路徑。
+FileName2=
+##僅 OpenButton 使用。運行項 2 的文件路徑。
+Arguments2=
+##僅 OpenButton 使用。運行項 2 的啟動參數。
+WorkingDirectoryMode2=TargetDir
+##僅 OpenButton 使用。運行項 2 的工作目錄模式。
+WorkingDirectory2=
+##僅 OpenButton 使用。運行項 2 的自定義工作目錄。
+Run3=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 3。
+UseRelativePath3=1
+##僅 OpenButton 使用。1 表示 FileName3 是相對路徑，0 表示絕對路徑。
+FileName3=
+##僅 OpenButton 使用。運行項 3 的文件路徑。
+Arguments3=
+##僅 OpenButton 使用。運行項 3 的啟動參數。
+WorkingDirectoryMode3=TargetDir
+##僅 OpenButton 使用。運行項 3 的工作目錄模式。
+WorkingDirectory3=
+##僅 OpenButton 使用。運行項 3 的自定義工作目錄。
+Run4=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 4。
+UseRelativePath4=1
+##僅 OpenButton 使用。1 表示 FileName4 是相對路徑，0 表示絕對路徑。
+FileName4=
+##僅 OpenButton 使用。運行項 4 的文件路徑。
+Arguments4=
+##僅 OpenButton 使用。運行項 4 的啟動參數。
+WorkingDirectoryMode4=TargetDir
+##僅 OpenButton 使用。運行項 4 的工作目錄模式。
+WorkingDirectory4=
+##僅 OpenButton 使用。運行項 4 的自定義工作目錄。
+Run5=0
+##僅 OpenButton 使用。1 表示點擊按鈕時執行運行項 5。
+UseRelativePath5=1
+##僅 OpenButton 使用。1 表示 FileName5 是相對路徑，0 表示絕對路徑。
+FileName5=
+##僅 OpenButton 使用。運行項 5 的文件路徑。
+Arguments5=
+##僅 OpenButton 使用。運行項 5 的啟動參數。
+WorkingDirectoryMode5=TargetDir
+##僅 OpenButton 使用。運行項 5 的工作目錄模式。
+WorkingDirectory5=
+##僅 OpenButton 使用。運行項 5 的自定義工作目錄。
