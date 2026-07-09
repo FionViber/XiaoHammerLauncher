@@ -1,0 +1,7 @@
+Name,Type,Note
+TextBox,Element,Scrollable text box
+Text,Element,Single-line text
+OpenButton,Button,Open files or programs
+MessageButton,Button,Show a message
+RegButton,Button,Import a registry file
+Table,Element,Read this CSV file
