@@ -207,3 +207,5 @@ If the config cannot be read, check:
 - numeric switches are 0 or 1.
 
 If you cannot fix the config, back it up first, then delete it. The program will create a default config next time.
+
+This project is licensed under the MIT License.
