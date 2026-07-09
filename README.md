@@ -47,7 +47,7 @@ The default target is x86 so the same EXE can run on both 32-bit and 64-bit Wind
 
 If the EXE is renamed, the INI name follows it. For example, `Tools.exe` reads `Tools.ini`.
 
-See the full default template: [DEFAULT_TEMPLATE.md](DEFAULT_TEMPLATE.md). A plain text copy is also available as [DEFAULT_TEMPLATE.txt](DEFAULT_TEMPLATE.txt).
+See the full default template: [DEFAULT_TEMPLATE.md](DEFAULT_TEMPLATE.md).
 
 ## Modes
 
