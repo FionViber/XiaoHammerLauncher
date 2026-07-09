@@ -1,0 +1,75 @@
+name: Build Windows
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Build x86 executable
+        shell: pwsh
+        run: |
+          ./native/build.ps1 -Arch x86
+
+      - name: Package build output
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $rcText = Get-Content -LiteralPath 'native/src/XHLauncher.rc' -Raw
+          if ($rcText -notmatch 'FILEVERSION\s+(\d+),(\d+),(\d+),(\d+)') {
+            throw 'Could not read FILEVERSION from native/src/XHLauncher.rc'
+          }
+          $version = '{0}.{1}.{2}.{3}' -f $Matches[1], $Matches[2], $Matches[3], $Matches[4]
+          $distRoot = Join-Path $PWD 'dist'
+          $dist = Join-Path $distRoot "XHLauncher-$version-windows-x86"
+          New-Item -ItemType Directory -Force -Path $dist | Out-Null
+          New-Item -ItemType Directory -Force -Path (Join-Path $dist 'test') | Out-Null
+
+          Copy-Item -LiteralPath 'native/test/fulltest.ps1' -Destination (Join-Path $dist 'test/fulltest.ps1') -Force
+          Copy-Item -LiteralPath 'native/build.ps1' -Destination (Join-Path $dist 'build.ps1') -Force
+          Copy-Item -LiteralPath 'native/publish/Example.csv' -Destination (Join-Path $dist 'Example.csv') -Force
+          Copy-Item -LiteralPath 'native/publish/Example.png' -Destination (Join-Path $dist 'Example.png') -Force
+          Copy-Item -LiteralPath 'native/publish/README.md' -Destination (Join-Path $dist 'README.md') -Force
+          Copy-Item -LiteralPath 'native/publish/README.zh-Hans.md' -Destination (Join-Path $dist 'README.zh-Hans.md') -Force
+          Copy-Item -LiteralPath 'native/publish/README.zh-Hant.md' -Destination (Join-Path $dist 'README.zh-Hant.md') -Force
+          Copy-Item -LiteralPath 'native/publish/DEFAULT_TEMPLATE.md' -Destination (Join-Path $dist 'DEFAULT_TEMPLATE.md') -Force
+          Copy-Item -LiteralPath 'native/publish/DEFAULT_TEMPLATE.txt' -Destination (Join-Path $dist 'DEFAULT_TEMPLATE.txt') -Force
+          Copy-Item -LiteralPath 'native/publish/DEFAULT_TEMPLATE.zh-Hans.md' -Destination (Join-Path $dist 'DEFAULT_TEMPLATE.zh-Hans.md') -Force
+          Copy-Item -LiteralPath 'native/publish/DEFAULT_TEMPLATE.zh-Hans.txt' -Destination (Join-Path $dist 'DEFAULT_TEMPLATE.zh-Hans.txt') -Force
+          Copy-Item -LiteralPath 'native/publish/DEFAULT_TEMPLATE.zh-Hant.md' -Destination (Join-Path $dist 'DEFAULT_TEMPLATE.zh-Hant.md') -Force
+          Copy-Item -LiteralPath 'native/publish/DEFAULT_TEMPLATE.zh-Hant.txt' -Destination (Join-Path $dist 'DEFAULT_TEMPLATE.zh-Hant.txt') -Force
+          Copy-Item -LiteralPath 'native/src/XHLauncher.cpp' -Destination (Join-Path $dist 'XHLauncher.cpp') -Force
+          Copy-Item -LiteralPath 'native/publish/XHLauncher.exe' -Destination (Join-Path $dist 'XHLauncher.exe') -Force
+          Copy-Item -LiteralPath 'native/src/XHLauncher.ico' -Destination (Join-Path $dist 'XHLauncher.ico') -Force
+          Copy-Item -LiteralPath 'native/publish/XHLauncher.ini' -Destination (Join-Path $dist 'XHLauncher.ini') -Force
+          Copy-Item -LiteralPath 'native/src/XHLauncher.manifest' -Destination (Join-Path $dist 'XHLauncher.manifest') -Force
+          Copy-Item -LiteralPath 'native/src/XHLauncher.rc' -Destination (Join-Path $dist 'XHLauncher.rc') -Force
+          Copy-Item -LiteralPath 'native/publish/XHLauncherReadMe.txt' -Destination (Join-Path $dist 'XHLauncherReadMe.txt') -Force
+          Copy-Item -LiteralPath 'native/publish/XHLauncherReadMe.zh-Hans.txt' -Destination (Join-Path $dist 'XHLauncherReadMe.zh-Hans.txt') -Force
+          Copy-Item -LiteralPath 'native/publish/XHLauncherReadMe.zh-Hant.txt' -Destination (Join-Path $dist 'XHLauncherReadMe.zh-Hant.txt') -Force
+
+          $zip = Join-Path $distRoot "XHLauncher-$version-windows-x86.zip"
+          if (Test-Path -LiteralPath $zip) {
+            Remove-Item -LiteralPath $zip -Force
+          }
+          Compress-Archive -Path (Join-Path $dist '*') -DestinationPath $zip -Force
+          "PACKAGE_ZIP=$zip" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: XHLauncher-windows-x86
+          path: ${{ env.PACKAGE_ZIP }}
