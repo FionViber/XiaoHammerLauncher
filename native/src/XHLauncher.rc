@@ -1,12 +1,12 @@
-﻿#include <windows.h>
+#include <windows.h>
 
 101 ICON "native\\src\\XHLauncher.ico"
 
 1 RT_MANIFEST "XHLauncher.manifest"
-3 RCDATA "native\\publish\\XHLauncher.ini"
-4 RCDATA "native\\publish\\XHLauncherReadMe.txt"
-5 RCDATA "native\\publish\\XHLauncherReadMe.zh-Hans.txt"
-6 RCDATA "native\\publish\\XHLauncherReadMe.zh-Hant.txt"
+3 RCDATA "DEFAULT_TEMPLATE.txt"
+4 RCDATA "README.md"
+5 RCDATA "README.zh-Hans.md"
+6 RCDATA "README.zh-Hant.md"
 
 1 VERSIONINFO
  FILEVERSION 1,0,3,0
